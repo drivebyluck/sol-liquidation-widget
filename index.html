@@ -1,86 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Solana Liquidation Chart</title>
-  <link rel="stylesheet" href="style.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-  <div class="main-container">
-    <img src="TradeWithJarslogo.png" class="logo" alt="TradeWithJars Logo" />
-    <div class="watermark">TradeWithJars.net</div>
+body {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
 
-    <div class="section-box">
-      <h2 class="section-header">SOL Total Liquidations Chart</h2>
-      <canvas id="liquidationChart"></canvas>
-    </div>
+.main-container {
+  max-width: 1200px;
+  margin: auto;
+}
 
-    <div class="section-box">
-      <h2 class="section-header">Exchange SOL Futures Open Interest (USD)</h2>
-      <canvas id="openInterestChart"></canvas>
-    </div>
+.logo {
+  display: block;
+  width: 200px;
+  margin: 0 auto 30px auto;
+}
 
-    <div class="section-box">
-      <h2 class="section-header">SOL Volume</h2>
-      <canvas id="volumeChart"></canvas>
-    </div>
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.12);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
 
-    <div class="section-box">
-      <h2 class="section-header">SOL Futures Trade Count</h2>
-      <canvas id="tradeCountChart"></canvas>
-    </div>
-  </div>
+.section-box {
+  background-color: #1a1a1a;
+  border: 2px solid red;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px;
+  box-shadow: 0 0 15px red;
+}
 
-  <script>
-    async function fetchSolData() {
-      const res = await fetch('https://sol-liquidation-proxy.onrender.com/sol-data');
-      const data = await res.json();
-      return data;
-    }
+.section-header {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
 
-    function createChart(canvasId, label, labels, dataPoints, color) {
-      new Chart(document.getElementById(canvasId), {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: label,
-            data: dataPoints,
-            borderColor: color,
-            backgroundColor: color + "22",
-            borderWidth: 2,
-            fill: true,
-            tension: 0.3
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              labels: { color: "#ffffff" }
-            }
-          },
-          scales: {
-            x: {
-              ticks: { color: "#ffffff" }
-            },
-            y: {
-              ticks: { color: "#ffffff" }
-            }
-          }
-        }
-      });
-    }
-
-    fetchSolData().then(data => {
-      createChart("liquidationChart", "Total Liquidations", data.timestamps, data.liquidations, "#e63946");
-      createChart("openInterestChart", "Open Interest (USD)", data.timestamps, data.openInterest, "#2a9d8f");
-      createChart("volumeChart", "Volume", data.timestamps, data.volume, "#f4a261");
-      createChart("tradeCountChart", "Trade Count", data.timestamps, data.tradeCount, "#a8dadc");
-    });
-  </script>
-</body>
-</html>
+canvas {
+  width: 100% !important;
+  height: 400px !important;
+}
