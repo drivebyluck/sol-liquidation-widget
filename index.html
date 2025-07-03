@@ -11,6 +11,7 @@
     <img src="TradeWithJarslogo.png" alt="TradeWithJars Logo" class="logo">
 
     <div class="chart-container">
+      <!-- TradingView Chart -->
       <div id="tvChart">
         <div class="tradingview-widget-container">
           <div id="tradingview_sol"></div>
@@ -35,16 +36,22 @@
           </script>
         </div>
       </div>
+
+      <!-- Transparent canvas for future heatmap -->
       <canvas id="heatmapOverlay"></canvas>
+
+      <!-- Watermark -->
       <div class="watermark-centered">TradeWithJars.net</div>
     </div>
 
+    <!-- Heatmap Legend -->
     <div class="legend">
       <span>Heatmap Intensity:</span>
       <div class="legend-bar"></div>
       <div class="legend-label">Low → High Liquidation Volume</div>
     </div>
 
+    <!-- Liquidation Table -->
     <div class="table-container">
       <h3>Top Liquidation Zones</h3>
       <table>
@@ -52,7 +59,7 @@
           <tr><th>Side</th><th>Price</th><th>Size (USD)</th></tr>
         </thead>
         <tbody id="liquidationTableBody">
-          <!-- Data will go here -->
+          <!-- Future data injected here -->
         </tbody>
       </table>
     </div>
