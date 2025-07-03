@@ -3,24 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Solana Liquidation Chart</title>
+  <title>Solana Liquidation Heatmap Widget</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="section">
-      <h1 class="headline">Solana Liquidation Chart</h1>
-      <div class="chart-container">
-        <iframe 
-          src="https://www.coinglass.com/heatmap/SOLUSDT" 
-          width="100%" 
-          height="100%" 
-          frameborder="0"
-          allowfullscreen
-          title="Solana Liquidation Chart"
-        ></iframe>
-        <div class="watermark">TradeWithJars.net</div>
-      </div>
+  <div class="widget" id="liquidationWidget">
+    <img src="TradeWithJarslogo.png" alt="TradeWithJars Logo" class="logo">
+
+    <div class="chart-container">
+      <!-- ✅ TradingView SOL/USDT chart perfectly sized -->
+      <iframe
+        src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_8fe6e&symbol=BINANCE%3ASOLUSDT&interval=30&theme=dark&style=1&locale=en&utm_source=TradeWithJars.net&utm_medium=widget&utm_campaign=chart&utm_term=SOLUSDT"
+        frameborder="0"
+        allowtransparency="true"
+        scrolling="no"
+        allowfullscreen
+        style="width:100%; height:100%; border:0;"
+        title="SOL/USDT Chart">
+      </iframe>
+
+      <canvas id="heatmapOverlay"></canvas>
+      <div class="watermark-centered">TradeWithJars.net</div>
+    </div>
+
+    <!-- ✅ Heatmap Legend -->
+    <div class="legend">
+      <span>Heatmap Intensity:</span>
+      <div class="legend-bar"></div>
+      <div class="legend-label">Low → High Liquidation Volume</div>
+    </div>
+
+    <!-- ✅ NEW TITLE ABOVE TABLE -->
+    <h2 style="text-align: center; color: #017a36; margin-top: 30px;">Solana Liquidation Heatmap</h2>
+
+    <!-- ✅ Table Placeholder Restored -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Side</th>
+            <th>Price</th>
+            <th>Size (USD)</th>
+          </tr>
+        </thead>
+        <tbody id="liquidationTableBody">
+          <!-- Live liquidation data will appear here in next step -->
+        </tbody>
+      </table>
     </div>
   </div>
 </body>
