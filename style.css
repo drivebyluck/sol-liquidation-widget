@@ -53,6 +53,7 @@ body {
   z-index: 5;
 }
 
+/* ✅ FINAL Watermark: smaller, centered, semi-transparent grey */
 .watermark-centered {
   position: absolute;
   top: 50%;
@@ -60,7 +61,7 @@ body {
   transform: translate(-50%, -50%);
   font-size: 21px;
   font-weight: 700;
-  color: rgba(180, 180, 180, 0.25);
+  color: rgba(180, 180, 180, 0.25); /* light grey, visibly semi-transparent */
   z-index: 6;
   pointer-events: none;
   white-space: nowrap;
