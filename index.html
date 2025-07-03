@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solana Liquidation Heatmap Widget</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="widget" id="liquidationWidget">
+    <img src="TradeWithJarslogo.png" alt="TradeWithJars Logo" class="logo">
+    <div class="watermark">TradeWithJars.net</div>
+    <div class="chart-container">
+      <div id="tvChart"></div>
+      <canvas id="heatmapOverlay"></canvas>
+    </div>
+    <div class="legend">
+      <span>Heatmap Intensity:</span>
+      <div class="legend-bar"></div>
+      <div class="legend-label">Low → High Liquidation Volume</div>
+    </div>
+    <div class="table-container">
+      <h3>Top Liquidation Zones</h3>
+      <table>
+        <thead>
+          <tr><th>Side</th><th>Price</th><th>Size (USD)</th></tr>
+        </thead>
+        <tbody id="liquidationTableBody">
+          <!-- Data will be injected here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
