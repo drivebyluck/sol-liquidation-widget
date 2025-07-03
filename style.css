@@ -1,0 +1,101 @@
+body {
+  background: #0d0d0d;
+  color: #e6ffe6;
+  font-family: 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.widget {
+  max-width: 960px;
+  margin: auto;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #e02c2c;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 60px;
+  opacity: 0.85;
+  z-index: 10;
+}
+
+.watermark {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  color: rgba(255,255,255,0.15);
+  font-size: 16px;
+  z-index: 10;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 12px #e02c2c;
+}
+
+#tvChart {
+  width: 100%;
+  height: 100%;
+}
+
+#heatmapOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.legend {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.legend-bar {
+  margin: 8px auto;
+  height: 16px;
+  width: 60%;
+  border-radius: 8px;
+  background: linear-gradient(to right, #330066, #017a36, yellow);
+  box-shadow: 0 0 5px #e02c2c;
+}
+
+.legend-label {
+  font-size: 12px;
+  color: #888;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+th, td {
+  border: 1px solid #444;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #222;
+  color: #e02c2c;
+}
+
+tr:nth-child(even) {
+  background-color: #111;
+}
